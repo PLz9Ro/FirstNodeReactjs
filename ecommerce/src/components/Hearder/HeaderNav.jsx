@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import { MenuItem } from "@mui/material";
-
+import {useSelector} from "react-redux"
 const navigation = {
   categories: [
     {
@@ -247,6 +247,7 @@ function classNames(...classes) {
 export default function HeaderNav() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.login.currentUser);
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
   };
@@ -634,7 +635,15 @@ export default function HeaderNav() {
                     <MenuItem onClick={() => navigate("/account/order")}>
                       My Orders
                     </MenuItem>
-                    <MenuItem onClick={() => navigate("/login")}>Log In</MenuItem>
+                    {user ?(
+                        <MenuItem onClick={() => navigate("/dashboard")}>Dashboard</MenuItem>
+
+                      ):(
+                        
+                        <MenuItem onClick={() => navigate("/login")}>Log In</MenuItem>
+                    )}
+                    <>
+                    </>
                   </Menu>
                 </div>
                 {/* Search */}

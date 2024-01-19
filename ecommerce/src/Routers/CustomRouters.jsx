@@ -10,8 +10,9 @@ import Productdetail from '../components/ProductDetails/Productdetail'
 import CheckoutItem from '../components/Checkout/CheckoutItem'
 import OrderChecking from '../components/Order/OrderChecking'
 import OrderDetail from '../components/Order/OrderDetail'
-import SignInSide from '../components/Login/SignInSide'
-
+import SignInSide from '../components/Login/Login'
+import Register from '../components/Register/Register'
+import Dashboard from '../components/Dasboard/Dashboard'
 const CustomRouters = () => {
   return (
     <div>
@@ -27,6 +28,8 @@ const CustomRouters = () => {
             <Route path='/account/order' element={<OrderDetail/>}></Route>
             <Route path='/account/order/:orderId' element={<OrderChecking/>}></Route>
             <Route path='/login' element={<SignInSide/>}></Route>
+            <Route path='/register' element={<Register/>}></Route>
+            <Route path='/dashboard' element={<Dashboard/>}></Route>
         </Routes>
         <div>
             <Footer/>
